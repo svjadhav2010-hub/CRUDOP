@@ -26,3 +26,35 @@ STEP V: Add or Update following code in package.json file
 "start" : "nodemon server.js"
 "type" : "module"
 --------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------
+STEP VI: Write following code in server.js 
+
+'''code
+import express from "express";
+import mysql from "mysql";
+import cors from "cors";
+
+const app = express();
+
+app.use(cors());
+app.listen(8081,()=>{
+    console.log("Server Listening...");
+});
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Swayam@123",
+  database: "crudop",
+});
+'''
+
+~backend $ npm start 
+--------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------
+STEP VII: Go to frontend folder and install following packages
+
+~frontend $ 
+--------------------------------------------------------------------------------------------------
