@@ -56,5 +56,25 @@ const db = mysql.createConnection({
 --------------------------------------------------------------------------------------------------
 STEP VII: Go to frontend folder and install following packages
 
-~frontend $ 
+~frontend $ npm install axios bootstrap react-router-dom
+--------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------
+STEP VIII: Run server
+
+~frontend $ npm start
+--------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------
+STEP IX: Open mysql
+
+~$ sudo mysql -u root -p
+~$  mysql > show databases;
+    mysql > create database studDB;
+    mysql > use studDB;
+    mysql > show tables;
+    mysql > create table student(id int primary key auto_increment, name varchar(30), email varchar(30));
+    mysql > desc student;
+    mysql > select * from student;
+
 --------------------------------------------------------------------------------------------------
