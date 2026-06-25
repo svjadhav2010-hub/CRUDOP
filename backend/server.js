@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import mysql from "mysql2";
 import cors from "cors";
@@ -8,10 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Swayam@2005",
-  database: "studDB",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
@@ -22,7 +24,7 @@ db.connect((err) => {
   console.log("Connected to MySQL database.");
 });
 
-// READ ALL
+// READ ALL (Home Page)
 app.get('/read', (req, res) => {
   const sql = "SELECT * FROM student";
   db.query(sql, (err, result) => {
@@ -31,7 +33,7 @@ app.get('/read', (req, res) => {
   });
 });
 
-// READ ONE
+// READ record by ID
 app.get('/read/:id', (req, res) => {
   const sql = "SELECT * FROM student WHERE id=?";
   const id = req.params.id;
@@ -45,7 +47,7 @@ app.get('/read/:id', (req, res) => {
 app.post('/student', (req, res) => {
   const sql = "INSERT INTO student(`name`, `email`) VALUES(?)";
   const values = [req.body.name, req.body.email];
-  db.query(sql, [values], (err, result) => {  // fix: [values] passed
+  db.query(sql, [values], (err, result) => {  //  [values] array is used to pass the values as a single parameter to the query
     if (err) return res.status(500).json({ Message: "Error inserting student." });
     return res.json(result);
   });
