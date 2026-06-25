@@ -9,8 +9,8 @@ function Home()
     useEffect(() => {
         axios.get('http://localhost:8081/read')
             .then(res => {
-                setData(res.data)
-            ;})
+                setData(res.data);
+            })
             .catch(error => {
                 console.error('Error fetching student data:', error);
             });
