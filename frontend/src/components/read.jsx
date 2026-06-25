@@ -19,12 +19,12 @@ function Read()
             <div className="w-50 bg-white rounded p-3">
                 <div className="p-2">
                     <h2>Student Search Information</h2>
-                    <h2>{student.ID}</h2>
-                    <h2>{student.Name}</h2>
-                    <h2>{student.Email}</h2>
+                    <h2>{student.id}</h2>
+                    <h2>{student.name}</h2>
+                    <h2>{student.email}</h2>
                 </div>
                 <Link to="/" className="btn btn-primary me-2">Back</Link>
-                <Link to={'/edit/${student.ID}'} className="btn btn-info">Edit</Link>
+                <Link to={'/edit/${student.id}'} className="btn btn-info">Edit</Link>
             </div>
         </div>
     )
