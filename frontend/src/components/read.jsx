@@ -24,7 +24,7 @@ function Read()
                     <h2>{student.email}</h2>
                 </div>
                 <Link to="/" className="btn btn-primary me-2">Back</Link>
-                <Link to={'/edit/${student.id}'} className="btn btn-info">Edit</Link>
+                <Link to={`/edit/${student.id}`} className="btn btn-info">Edit</Link>
             </div>
         </div>
     )
