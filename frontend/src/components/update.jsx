@@ -17,8 +17,8 @@ function Update() {
                 console.log(res);
                 setValues({
                     ...values,
-                    name: res.data[0].name,    // lowercase
-                    email: res.data[0].email   // lowercase
+                    name: res.data[0].name,
+                    email: res.data[0].email
                 });
             })
             .catch(err => console.log(err));
@@ -62,8 +62,8 @@ function Update() {
                         />
                     </div>
 
-                    <button className="btn btn-success me-2">Update</button>
-                    <Link to="/" className="btn btn-primary">Back</Link>
+                    <Link to="/" className="btn btn-primary me-2">Back</Link>
+                    <button className="btn btn-success">Update</button>
                 </form>
             </div>
         </div>
