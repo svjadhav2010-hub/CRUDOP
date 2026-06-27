@@ -57,7 +57,9 @@ app.post('/student', (req, res) => {
 app.put('/update/:id', (req, res) => {
   const sql = "UPDATE student SET `name`=?, `email`=? WHERE id=?";
   const id = req.params.id;
-  db.query(sql, [req.body.name, req.body.email, id], (err, result) => {
+  const name = req.body.name;
+  const email = req.body.email;
+  db.query(sql, [name, email, id], (err, result) => {
     if (err) return res.status(500).json({ Message: "Error updating student." });
     return res.json(result);
   });
@@ -73,6 +75,6 @@ app.delete('/delete/:id', (req, res) => {
   });
 });
 
-app.listen(8081, () => {
-  console.log("Server listening on port 8081");
+app.listen(process.env.PORT, () => {
+  console.log(`Server listening on port ${process.env.PORT}`);
 });
